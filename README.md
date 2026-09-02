@@ -1,73 +1,131 @@
-# Welcome to your Lovable project
+# RCT Ecology Workshop
 
-## Project info
+Interactive conference portal, schedule explorer, and registration platform for the Relational-Cultural Theory (RCT) Ecology Gathering, examining relational ecology, environmental sustainability, and embodied ecological connection.
 
-**URL**: https://lovable.dev/projects/123c9894-2343-4e62-ab82-972fe2bc9950
+---
 
-## How can I edit this code?
+## Architecture & Component Map
 
-There are several ways of editing your application.
+```
++-------------------------------------------------------------------------------+
+|                            RCT Ecology Gathering SPA                          |
+|                                                                               |
+|  +-------------------------------------------------------------------------+  |
+|  | Navbar (Navigation, Branding, Smooth Scroll Anchors)                   |  |
+|  +-------------------------------------------------------------------------+  |
+|                                       |                                       |
+|  +------------------------------------+------------------------------------+  |
+|  | Hero Section                       | AboutSection                       |  |
+|  | - Event Theme & Call to Action     | - Relational-Cultural Theory Context|  |
+|  +------------------------------------+------------------------------------+  |
+|                                       |                                       |
+|  +------------------------------------+------------------------------------+  |
+|  | WorkshopDetails                    | SpeakerCard                        |  |
+|  | - Dual Schedules (MA & MN)        | - Facilitator & Scholar Profiles   |  |
+|  | - Location & Timing Matrix         | - Research Specializations         |  |
+|  +------------------------------------+------------------------------------+  |
+|                                       |                                       |
+|  +------------------------------------+------------------------------------+  |
+|  | BirdPhotography                    | RegistrationForm                   |  |
+|  | - Ecological Species Gallery       | - Participant Intake & Validation  |  |
+|  | - Field Notes & High-Res Media     | - React Hook Form + Zod Schema     |  |
+|  +------------------------------------+------------------------------------+  |
+|                                       |                                       |
+|  +-------------------------------------------------------------------------+  |
+|  | Footer (Institutional Credits, Community Links, Copyright)              |  |
+|  +-------------------------------------------------------------------------+  |
++-------------------------------------------------------------------------------+
+```
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/123c9894-2343-4e62-ab82-972fe2bc9950) and start prompting.
+## Core Capabilities
 
-Changes made via Lovable will be committed automatically to this repo.
+* **Multi-Regional Schedule Management**: Interactive timeline presenting multi-track gathering sessions across Massachusetts and Minnesota cohorts.
+* **Ecological Media & Field Photography**: High-resolution avian photography gallery with responsive aspect ratios and field observations.
+* **Participant Registration**: Validated registration intake form powered by `react-hook-form` and `zod`.
+* **Accessible Design System**: Built with Tailwind CSS, custom earth-tone palettes, and accessible Radix UI primitives.
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Repository Structure
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```
+RCT-ecology-workshop/
+├── src/
+│   ├── components/           # Modular page sections and UI controls
+│   │   ├── AboutSection.tsx  # Relational-Cultural Theory context
+│   │   ├── BirdPhotography.tsx # Avian media gallery and species notes
+│   │   ├── Footer.tsx        # Institutional footer and navigation
+│   │   ├── Hero.tsx          # Main conference banner and CTA
+│   │   ├── Navbar.tsx        # Responsive header and navigation
+│   │   ├── RegistrationForm.tsx # Registration intake and validation
+│   │   ├── SpeakerCard.tsx   # Facilitator biographies
+│   │   ├── WorkshopDetails.tsx # Detailed dual-location schedule matrix
+│   │   └── ui/               # Radix UI primitive wrappers
+│   ├── hooks/                # Custom React hooks (toast, mobile detection)
+│   ├── lib/                  # Utility functions (class merging, formatters)
+│   ├── pages/                # Route views (Index, NotFound)
+│   ├── App.tsx               # App router and React Query client provider
+│   └── main.tsx              # DOM root mount
+├── docs/
+│   └── adr/                  # Architectural Decision Records (ADRs 0001 - 0002)
+├── public/                   # Static assets, fonts, and icons
+├── index.html                # HTML entry document
+├── package.json              # Project dependencies and build scripts
+├── tailwind.config.ts        # Design tokens and styling configuration
+└── vite.config.ts            # Vite bundler configuration
+```
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Prerequisites
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+* **Node.js**: 18.x or higher
+* **Package Manager**: `npm`, `pnpm`, or `bun`
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+## Quickstart
+
+### 1. Installation
+
+```bash
+git clone https://github.com/kaushalbalagurusamy/RCT-ecology-workshop.git
+cd RCT-ecology-workshop
+
+npm install
+```
+
+### 2. Running Development Server
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will start locally at `http://localhost:8080`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 3. Production Build
 
-**Use GitHub Codespaces**
+```bash
+# Build optimized static bundle
+npm run build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Preview production build locally
+npm run preview
+```
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## Technical Documentation & ADRs
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+All foundational architectural decisions are recorded in [`docs/adr/`](docs/adr/):
 
-## How can I deploy this project?
+* [`docs/adr/0001-single-page-conference-portal-architecture.md`](docs/adr/0001-single-page-conference-portal-architecture.md) — Single-Page Workshop Portal Architecture
+* [`docs/adr/0002-shadcn-tailwind-design-system.md`](docs/adr/0002-shadcn-tailwind-design-system.md) — Tailwind CSS & Radix UI Design System
 
-Simply open [Lovable](https://lovable.dev/projects/123c9894-2343-4e62-ab82-972fe2bc9950) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## License
 
-Yes it is!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
