@@ -1,5 +1,8 @@
 # RCT Ecology Workshop
 
+[![CI](https://github.com/kaushalbalagurusamy/RCT-ecology-workshop/actions/workflows/ci.yml/badge.svg)](https://github.com/kaushalbalagurusamy/RCT-ecology-workshop/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Interactive conference portal, schedule explorer, and registration platform for the Relational-Cultural Theory (RCT) Ecology Gathering, examining relational ecology, environmental sustainability, and embodied ecological connection.
 
 ---
